@@ -19,7 +19,7 @@ export class ProductService {
       loader: {
         includeDirs: [join(__dirname, "..", "..", "proto")],
       },
-      protoPath: join(join(__dirname, "../..", "libs/proto", "product.proto")),
+      protoPath: join(join(__dirname, "../..", "proto", "product.proto")),
     },
   })
   private client: ClientGrpc;
