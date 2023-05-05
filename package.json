@@ -1,0 +1,24 @@
+{
+  "name": "@takimbirprojeler/backend.node.shared.clients",
+  "version": "0.0.3",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist && tsc",
+    "prepublish": "pnpm publish --no-git-checks --access public"
+  },
+  "dependencies": {
+    "@grpc/proto-loader": "^0.7.5",
+    "@nestjs/common": "^9.4.0",
+    "@nestjs/microservices": "^9.3.10",
+    "@takimbirprojeler/backend.node.shared.entities": "^1.0.1",
+    "@types/node": "^20.0.0",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.0",
+    "typescript": "^5.0.4"
+  }
+}
