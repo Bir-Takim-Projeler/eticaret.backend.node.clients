@@ -17,11 +17,9 @@ export class ProductService {
       package: "Product",
       url: "localhost:5000",
       loader: {
-        includeDirs: [join(process.cwd(), "../../", "libs/proto")],
+        includeDirs: [join(__dirname, "..", "..", "proto")],
       },
-      protoPath: join(
-        join(process.cwd(), "../../", "libs/proto", "product.proto")
-      ),
+      protoPath: join(join(__dirname, "../..", "libs/proto", "product.proto")),
     },
   })
   private client: ClientGrpc;

@@ -1,0 +1,53 @@
+// products.proto
+syntax = "proto3";
+
+package Product;
+
+import "basic.proto";
+
+service ProductService {
+  rpc GetProductById (ProductById) returns (Product) {}
+  rpc GetProducts (Void) returns (Products);
+}
+
+message ProductById {
+  string id = 1;
+}
+
+
+message Products {
+  repeated Product products = 1;
+}
+
+enum PriceType {
+    TL = 0;
+    USD = 1;
+    EUR =2;
+  }
+
+message Price {
+  PriceType type = 1;
+  float unit = 2;
+  float task = 3;
+}
+
+message Product {
+  required string id = 1;
+  string name = 2;
+  string brand = 3;
+  repeated string sku = 4;
+  string description = 5;
+  Price price = 6;
+  string category = 7; // to do return category as well
+  string inventory = 8;
+  string discount = 9;
+  map<string, string> specs = 10;
+}
+
+
+message ProductReturnType {
+  oneof response {
+    Error error = 1;
+    Product data = 2;
+  }
+}

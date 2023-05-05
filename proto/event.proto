@@ -1,0 +1,55 @@
+syntax = "proto3";
+package event;
+
+import "basic.proto";
+
+service EventService {
+  rpc TriggerEvent (TriggerEventInput) returns (Void) {};
+  rpc BroadcastEvent (TriggerEventInput) returns (Void) {};
+}
+
+enum ProductEvents {
+    ProductCreateEvent = 1;
+    ProductUpdateEvent = 2;
+    ProductDeleteEvent = 3;
+}
+
+enum SocketEvents {
+    JoinRoomEvent = 1;
+    LeaveRoomEvent = 2;
+    KickEvent = 3;
+}
+
+enum RBACEvents {
+    RoleCreateEvent  = 1;
+    RoleUpdateEvent = 2;
+    RoleDeleteEvent = 3;
+    PermCreateEvent = 4;
+    UserPermUpdateEvent = 5;
+    UserRoleUpdateEvent = 6;
+}
+
+enum AuthEvents {
+    UserLogoutEvent = 1;
+    UserLoginEvent = 2;
+}
+enum Events {
+    oneof EventType {
+        ProductEvents productEvent = 1;
+        SocketEvents SocketEvent = 2;
+        RBACEvents rbacEvent = 3;
+        AuthEvents authEvent = 4;
+    }
+}
+
+message Recipiant {
+    string room = 1;
+    string namespace = 2;
+    string recipiantId = 3;
+}
+
+message TriggerEventInput {
+    repeated Recipiant recipiants = 1;
+    Events event = 2;
+    repeated string data = 3;
+}

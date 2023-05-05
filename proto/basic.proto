@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+
+message Void {}
+
+message Null {}
+
+message Error {
+    string type = 1;
+    string code = 2;
+    string message = 3;
+}
+

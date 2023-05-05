@@ -7,6 +7,9 @@ dependencies:
   '@nestjs/common':
     specifier: ^9.4.0
     version: 9.4.0(reflect-metadata@0.1.13)(rxjs@7.8.1)
+  '@nestjs/core':
+    specifier: ^9.4.0
+    version: 9.4.0(@nestjs/common@9.4.0)(@nestjs/microservices@9.4.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
   '@nestjs/microservices':
     specifier: ^9.3.10
     version: 9.4.0(@nestjs/common@9.4.0)(@nestjs/core@9.4.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
